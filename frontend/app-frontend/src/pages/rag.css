@@ -1,0 +1,72 @@
+/* rag.css */
+.rag-container {
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: system-ui, sans-serif;
+}
+
+.rag-container h2 {
+  font-size: 1.5rem;
+  color: #0078ff;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+input[type="file"] {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-left: 8px;
+  background: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #005bb5;
+}
+
+.query-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rag-response {
+  background: #f1f4fa;
+  border-radius: 8px;
+  padding: 18px 18px 10px 18px;
+  margin-top: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+.rag-response h4 {
+  color: #0078ff;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.rag-response p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+input[type="text"], input[type="search"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  font-size: 1rem;
+}
