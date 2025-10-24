@@ -27,7 +27,7 @@ client = OpenAI(
 
 app = FastAPI()
 
-app.mount("/", StaticFiles(directory="frontend/app-frontend/dist", html=True), name="static")
+
 
 
 from fastapi.middleware.cors import CORSMiddleware
