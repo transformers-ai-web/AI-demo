@@ -1,36 +1,10 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 import uvicorn
-import llm
+from chat_api import llm
 from pydantic import BaseModel
-
-from fastapi import UploadFile, File
-import shutil, os
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
-
-import os
-from openai import OpenAI
-
-token = os.environ["GITHUB_TOKEN"]
-endpoint = "https://models.github.ai/inference"
-model = "openai/gpt-4.1-mini"
-
-client = OpenAI(
-    base_url=endpoint,
-    api_key=token,
-)
-
-
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
-
-
-
-from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
@@ -43,7 +17,7 @@ app.add_middleware(
 class ChatRequest(BaseModel):
     message: str
 
-@app.post("/chat")
+@app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
     user_message = request.message
     response = llm.get_llm_response(user_message)
