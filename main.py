@@ -39,7 +39,8 @@ class RAGRequest(BaseModel):
 @app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
     user_message = request.message
-    response = llm.get_llm_response(user_message)
+    system_prompt = "You are a helpful assistant."
+    response = llm.get_llm_response(user_message, system_prompt)
     print(response)
     return {"response": response}
 
