@@ -11,16 +11,16 @@ client = OpenAI(
 )
 
 
-def get_llm_response(prompt: str) -> str:
+def get_llm_response(user_prompt: str, system_prompt: str) -> str:
     response = client.chat.completions.create(
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful assistant.",
+                "content": system_prompt,
             },
             {
                 "role": "user",
-                "content": prompt,
+                "content": user_prompt,
             }
         ],
         temperature=1.0,
